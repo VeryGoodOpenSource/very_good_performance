@@ -1,6 +1,6 @@
 # Very Good Performance
 
-[![Very Good Ventures](https://raw.githubusercontent.com/VeryGoodOpenSource/very_good_performance/main/assets/vgv_logo.png)](https://verygood.ventures)
+[![Very Good Ventures](./assets/vgv_logo.png)](https://verygood.ventures)
 
 Developed with 💙 by [Very Good Ventures](https://verygood.ventures) 🦄
 
