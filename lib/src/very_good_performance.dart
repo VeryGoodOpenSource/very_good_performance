@@ -5,11 +5,15 @@ import 'dart:io';
 import 'package:flutter_driver/flutter_driver.dart';
 import 'package:very_good_performance/src/models/models.dart';
 
+import 'printer.dart';
+import 'scorer.dart';
+
 extension VeryGoodPerformance on FlutterDriver {
   Future<void> capturePerformanceReport({
     required String reportName,
     required Future<dynamic> Function() action,
   }) async {
+    final configuration = _configuration;
     final timeline = await traceAction(action);
     final summary = TimelineSummary.summarize(timeline);
     await summary.writeTimelineToFile(
@@ -18,7 +22,8 @@ extension VeryGoodPerformance on FlutterDriver {
       pretty: true,
     );
     final report = Report.fromJson(summary.summaryJson);
-    print(report.toTable());
+    final score = Scorer.score(report, configuration);
+    Printer.printScore(report, score);
   }
 
   Configuration get _configuration {
