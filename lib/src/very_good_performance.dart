@@ -25,10 +25,24 @@ extension VeryGoodPerformance on FlutterDriver {
     final score = Scorer.score(report, configuration);
     Printer.printScore(report, score, configuration);
     Printer.printReportLocation(configuration, reportName);
+    exit(score.overall.statusCode(configuration.integrationTestExpectations));
   }
 
   Configuration get _configuration {
     final stringYaml = File('very_good_performance.yaml').readAsStringSync();
     return Configuration.fromString(stringYaml);
+  }
+}
+
+extension on Rating {
+  int statusCode(IntegrationTestExpectations expectations) {
+    switch (this) {
+      case Rating.success:
+        return 0;
+      case Rating.warning:
+        return expectations.shouldFailBuildOnWarning ? 1 : 0;
+      case Rating.failure:
+        return expectations.shouldFailBuildOnError ? 1 : 0;
+    }
   }
 }
