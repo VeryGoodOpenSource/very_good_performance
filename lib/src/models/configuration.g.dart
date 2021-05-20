@@ -61,22 +61,22 @@ PerformanceMetrics _$PerformanceMetricsFromJson(Map json) {
   return $checkedNew('PerformanceMetrics', json, () {
     $checkKeys(json, requiredKeys: const [
       'missed_frames_threshold',
-      'frame_build_rate_threshold',
-      'frame_rasterizer_rate_threshold'
+      'average_frame_build_rate_threshold',
+      'worst_frame_build_rate_threshold'
     ]);
     final val = PerformanceMetrics(
       $checkedConvert(json, 'missed_frames_threshold',
           (v) => MissedFramesThreshold.fromJson(v as Map)),
-      $checkedConvert(json, 'frame_build_rate_threshold',
+      $checkedConvert(json, 'average_frame_build_rate_threshold',
           (v) => FrameBuildRateThreshold.fromJson(v as Map)),
-      $checkedConvert(json, 'frame_rasterizer_rate_threshold',
-          (v) => FrameRaterizerRateThreshold.fromJson(v as Map)),
+      $checkedConvert(json, 'worst_frame_build_rate_threshold',
+          (v) => FrameBuildRateThreshold.fromJson(v as Map)),
     );
     return val;
   }, fieldKeyMap: const {
     'missedFramesThreshold': 'missed_frames_threshold',
-    'frameBuildRateThreshold': 'frame_build_rate_threshold',
-    'frameRaterizerRateThreshold': 'frame_rasterizer_rate_threshold'
+    'averageFrameBuildRateThreshold': 'average_frame_build_rate_threshold',
+    'worstFrameBuildRateThreshold': 'worst_frame_build_rate_threshold'
   });
 }
 
@@ -102,23 +102,6 @@ FrameBuildRateThreshold _$FrameBuildRateThresholdFromJson(Map json) {
     $checkKeys(json,
         requiredKeys: const ['warning_time_in_millis', 'error_time_in_millis']);
     final val = FrameBuildRateThreshold(
-      warningTimeInMillis: $checkedConvert(
-          json, 'warning_time_in_millis', (v) => (v as num).toDouble()),
-      errorTimeInMillis: $checkedConvert(
-          json, 'error_time_in_millis', (v) => (v as num).toDouble()),
-    );
-    return val;
-  }, fieldKeyMap: const {
-    'warningTimeInMillis': 'warning_time_in_millis',
-    'errorTimeInMillis': 'error_time_in_millis'
-  });
-}
-
-FrameRaterizerRateThreshold _$FrameRaterizerRateThresholdFromJson(Map json) {
-  return $checkedNew('FrameRaterizerRateThreshold', json, () {
-    $checkKeys(json,
-        requiredKeys: const ['warning_time_in_millis', 'error_time_in_millis']);
-    final val = FrameRaterizerRateThreshold(
       warningTimeInMillis: $checkedConvert(
           json, 'warning_time_in_millis', (v) => (v as num).toDouble()),
       errorTimeInMillis: $checkedConvert(

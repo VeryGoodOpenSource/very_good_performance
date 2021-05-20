@@ -1,4 +1,3 @@
-import 'package:barbecue/barbecue.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'report.g.dart';
@@ -49,38 +48,4 @@ class Report {
   final List<int> frameBuildTimes;
   @JsonKey(name: 'frame_rasterizer_times')
   final List<int> frameRasterizerTimes;
-
-  String toTable() {
-    return Table(
-      tableStyle: const TableStyle(border: true),
-      cellStyle: const CellStyle(
-        borderBottom: true,
-        borderRight: true,
-        borderLeft: true,
-        borderTop: true,
-        alignment: TextAlignment.TopLeft,
-        paddingRight: 2,
-      ),
-      header: const TableSection(rows: [
-        Row(
-          cells: [
-            Cell('Missed Frames'),
-            Cell('Average Frame Build Time ("ms")'),
-            Cell('Worst Frame Build Time("ms")'),
-          ],
-        ),
-      ]),
-      body: TableSection(
-        rows: [
-          Row(
-            cells: [
-              Cell('$missedFrameBuildBudgetCount'),
-              Cell('$averageFrameBuildTimeMillis'),
-              Cell('$worstFrameBuildTimeMillis'),
-            ],
-          ),
-        ],
-      ),
-    ).render();
-  }
 }

@@ -77,8 +77,8 @@ class IntegrationTestExpectations {
 class PerformanceMetrics {
   const PerformanceMetrics(
     this.missedFramesThreshold,
-    this.frameBuildRateThreshold,
-    this.frameRaterizerRateThreshold,
+    this.averageFrameBuildRateThreshold,
+    this.worstFrameBuildRateThreshold,
   );
 
   factory PerformanceMetrics.fromJson(Map json) =>
@@ -86,10 +86,10 @@ class PerformanceMetrics {
 
   @JsonKey(name: 'missed_frames_threshold', required: true)
   final MissedFramesThreshold missedFramesThreshold;
-  @JsonKey(name: 'frame_build_rate_threshold', required: true)
-  final FrameBuildRateThreshold frameBuildRateThreshold;
-  @JsonKey(name: 'frame_rasterizer_rate_threshold', required: true)
-  final FrameRaterizerRateThreshold frameRaterizerRateThreshold;
+  @JsonKey(name: 'average_frame_build_rate_threshold', required: true)
+  final FrameBuildRateThreshold averageFrameBuildRateThreshold;
+  @JsonKey(name: 'worst_frame_build_rate_threshold', required: true)
+  final FrameBuildRateThreshold worstFrameBuildRateThreshold;
 }
 
 @JsonSerializable(
@@ -127,27 +127,6 @@ class FrameBuildRateThreshold {
 
   factory FrameBuildRateThreshold.fromJson(Map json) =>
       _$FrameBuildRateThresholdFromJson(json);
-
-  @JsonKey(name: 'warning_time_in_millis', required: true)
-  final double warningTimeInMillis;
-  @JsonKey(name: 'error_time_in_millis', required: true)
-  final double errorTimeInMillis;
-}
-
-@JsonSerializable(
-  checked: true,
-  anyMap: true,
-  createFactory: true,
-  createToJson: false,
-)
-class FrameRaterizerRateThreshold {
-  const FrameRaterizerRateThreshold({
-    required this.warningTimeInMillis,
-    required this.errorTimeInMillis,
-  });
-
-  factory FrameRaterizerRateThreshold.fromJson(Map json) =>
-      _$FrameRaterizerRateThresholdFromJson(json);
 
   @JsonKey(name: 'warning_time_in_millis', required: true)
   final double warningTimeInMillis;

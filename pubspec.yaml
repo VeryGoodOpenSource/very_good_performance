@@ -14,6 +14,7 @@ dependencies:
     sdk: flutter
   flutter_driver:
     sdk: flutter
+  ansicolor: ^2.0.1
   barbecue: ^0.4.0
   checked_yaml: ^2.0.1
   json_annotation: ^4.0.1
