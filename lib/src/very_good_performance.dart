@@ -9,6 +9,16 @@ import 'printer.dart';
 import 'scorer.dart';
 
 extension VeryGoodPerformance on FlutterDriver {
+  /// It will create two performance reports with the given [reportName]:
+  /// * [reportName].timeline.json
+  /// * [reportName].timeline_summary.json
+  ///
+  /// At the same time, it will also print on the `stdout` some performance
+  /// information (missed frames, average build time and worst build time).
+  ///
+  /// It will terminate with a status code of zero if no performance issues were
+  /// found. Otherwise, it will look at your `very_good_performance.yaml`
+  /// configuration to determine which status code should be used.
   Future<void> capturePerformanceReport({
     required String reportName,
     required Future<dynamic> Function() action,

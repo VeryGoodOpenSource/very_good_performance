@@ -1,6 +1,6 @@
 name: very_good_performance
 description: Utility on top of the Flutter Driver API that facilitates measuring the performance of your app in an automated way
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/VeryGoodOpenSource/very_good_performance
 
 environment:
