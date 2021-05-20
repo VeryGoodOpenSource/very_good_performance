@@ -1,0 +1,15 @@
+performance_report:
+  directory: e2e/performance/reports
+integration_test_expectations:
+  should_fail_build_on_warning: false
+  should_fail_build_on_error: true
+performance_metrics:
+  missed_frames_threshold:
+    warning: 5
+    error: 10
+  average_frame_build_rate_threshold:
+    warning_time_in_millis: 14.0
+    error_time_in_millis: 16.0
+  worst_frame_build_rate_threshold:
+    warning_time_in_millis: 14.0
+    error_time_in_millis: 16.0
