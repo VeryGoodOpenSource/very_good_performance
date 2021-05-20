@@ -100,17 +100,17 @@ class PerformanceMetrics {
 )
 class MissedFramesThreshold {
   const MissedFramesThreshold({
-    required this.warningPercentage,
-    required this.errorPercentage,
+    required this.warning,
+    required this.error,
   });
 
   factory MissedFramesThreshold.fromJson(Map json) =>
       _$MissedFramesThresholdFromJson(json);
 
-  @JsonKey(name: 'warning_percentage', required: true)
-  final double warningPercentage;
-  @JsonKey(name: 'error_percentage', required: true)
-  final double errorPercentage;
+  @JsonKey(name: 'warning', required: true)
+  final int warning;
+  @JsonKey(name: 'error', required: true)
+  final int error;
 }
 
 @JsonSerializable(

@@ -1,10 +1,20 @@
+import 'dart:io';
+
 import 'package:ansicolor/ansicolor.dart';
 import 'package:barbecue/barbecue.dart';
 
 import 'models/models.dart';
 
 class Printer {
-  static void printScore(Report report, Score score) {
+  static void printScore(
+    Report report,
+    Score score,
+    Configuration configuration,
+  ) {
+    final perfMetrics = configuration.performanceMetrics;
+    final missedFrames = perfMetrics.missedFramesThreshold;
+    final averageBuild = perfMetrics.averageFrameBuildRateThreshold;
+    final worstBuild = perfMetrics.worstFrameBuildRateThreshold;
     print(Table(
       tableStyle: const TableStyle(border: true),
       cellStyle: const CellStyle(
@@ -13,11 +23,13 @@ class Printer {
         borderLeft: true,
         borderTop: true,
         alignment: TextAlignment.TopLeft,
-        paddingRight: 2,
+        paddingRight: 1,
+        paddingLeft: 2,
       ),
       header: const TableSection(rows: [
         Row(
           cells: [
+            Cell(''),
             Cell('Missed Frames'),
             Cell('Average Frame Build Time ("ms")'),
             Cell('Worst Frame Build Time("ms")'),
@@ -28,6 +40,7 @@ class Printer {
         rows: [
           Row(
             cells: [
+              const Cell('Result'),
               Cell(score.missedFrames.colorize(
                 '${report.missedFrameBuildBudgetCount}',
               )),
@@ -39,9 +52,37 @@ class Printer {
               )),
             ],
           ),
+          Row(
+            cells: [
+              const Cell('Warning-Error Range'),
+              Cell(
+                '${missedFrames.warning} - '
+                '${missedFrames.error}',
+              ),
+              Cell(
+                '${averageBuild.warningTimeInMillis} - '
+                '${averageBuild.errorTimeInMillis}',
+              ),
+              Cell(
+                '${worstBuild.warningTimeInMillis} - '
+                '${worstBuild.errorTimeInMillis}',
+              ),
+            ],
+          ),
         ],
       ),
     ).render());
+    print(score.overall.explanation);
+  }
+
+  static void printReportLocation(Configuration configuration, String name) {
+    final current = Directory.current.path;
+    final message = '''
+Two performance reports have been generated. They can be located at:
+* $current/${configuration.performaceReport.directory}/$name.timeline.json
+* $current/${configuration.performaceReport.directory}/$name.timeline_summary.json
+    ''';
+    print(message);
   }
 }
 
@@ -58,6 +99,24 @@ extension on Rating {
       case Rating.failure:
         final pen = AnsiPen()..red(bold: true);
         return pen(message);
+    }
+  }
+
+  String get explanation {
+    ansiColorDisabled = false;
+    switch (this) {
+      case Rating.success:
+        final pen = AnsiPen()..green(bold: true);
+        return pen('All good! Your application is performing well!');
+      case Rating.warning:
+        final pen = AnsiPen()..yellow(bold: true);
+        return pen(r''''
+Heads up! Your application might be starting to experience some degradation in 
+its performance. You might want to consider launching an investigation to 
+understand what components of your application are consuming more resources''');
+      case Rating.failure:
+        final pen = AnsiPen()..red(bold: true);
+        return pen('Error! Your application is not performing well!');
     }
   }
 }
