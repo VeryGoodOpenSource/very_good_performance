@@ -93,17 +93,19 @@ MissedFramesThreshold _$MissedFramesThresholdFromJson(Map json) {
 
 FrameBuildRateThreshold _$FrameBuildRateThresholdFromJson(Map json) {
   return $checkedNew('FrameBuildRateThreshold', json, () {
-    $checkKeys(json,
-        requiredKeys: const ['warning_time_in_millis', 'error_time_in_millis']);
+    $checkKeys(json, requiredKeys: const [
+      'warning_time_in_milliseconds',
+      'error_time_in_milliseconds'
+    ]);
     final val = FrameBuildRateThreshold(
-      warningTimeInMillis: $checkedConvert(
-          json, 'warning_time_in_millis', (v) => (v as num).toDouble()),
-      errorTimeInMillis: $checkedConvert(
-          json, 'error_time_in_millis', (v) => (v as num).toDouble()),
+      warningTimeInMilliseconds: $checkedConvert(
+          json, 'warning_time_in_milliseconds', (v) => (v as num).toDouble()),
+      errorTimeInMilliseconds: $checkedConvert(
+          json, 'error_time_in_milliseconds', (v) => (v as num).toDouble()),
     );
     return val;
   }, fieldKeyMap: const {
-    'warningTimeInMillis': 'warning_time_in_millis',
-    'errorTimeInMillis': 'error_time_in_millis'
+    'warningTimeInMilliseconds': 'warning_time_in_milliseconds',
+    'errorTimeInMilliseconds': 'error_time_in_milliseconds'
   });
 }

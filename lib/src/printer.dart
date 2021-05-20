@@ -60,12 +60,12 @@ class Printer {
                 '${missedFrames.error}',
               ),
               Cell(
-                '${averageBuild.warningTimeInMillis} - '
-                '${averageBuild.errorTimeInMillis}',
+                '${averageBuild.warningTimeInMilliseconds} - '
+                '${averageBuild.errorTimeInMilliseconds}',
               ),
               Cell(
-                '${worstBuild.warningTimeInMillis} - '
-                '${worstBuild.errorTimeInMillis}',
+                '${worstBuild.warningTimeInMilliseconds} - '
+                '${worstBuild.errorTimeInMilliseconds}',
               ),
             ],
           ),

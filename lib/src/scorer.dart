@@ -11,13 +11,16 @@ class Scorer {
       ),
       averageBuildRate: _rating(
         value: report.averageFrameBuildTimeMillis,
-        warning: perfMetrics.averageFrameBuildRateThreshold.warningTimeInMillis,
-        error: perfMetrics.averageFrameBuildRateThreshold.errorTimeInMillis,
+        warning: perfMetrics
+            .averageFrameBuildRateThreshold.warningTimeInMilliseconds,
+        error:
+            perfMetrics.averageFrameBuildRateThreshold.errorTimeInMilliseconds,
       ),
       worstFrameBuildRate: _rating(
         value: report.worstFrameBuildTimeMillis,
-        warning: perfMetrics.worstFrameBuildRateThreshold.warningTimeInMillis,
-        error: perfMetrics.worstFrameBuildRateThreshold.errorTimeInMillis,
+        warning:
+            perfMetrics.worstFrameBuildRateThreshold.warningTimeInMilliseconds,
+        error: perfMetrics.worstFrameBuildRateThreshold.errorTimeInMilliseconds,
       ),
     );
   }

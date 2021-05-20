@@ -121,15 +121,15 @@ class MissedFramesThreshold {
 )
 class FrameBuildRateThreshold {
   const FrameBuildRateThreshold({
-    required this.warningTimeInMillis,
-    required this.errorTimeInMillis,
+    required this.warningTimeInMilliseconds,
+    required this.errorTimeInMilliseconds,
   });
 
   factory FrameBuildRateThreshold.fromJson(Map json) =>
       _$FrameBuildRateThresholdFromJson(json);
 
-  @JsonKey(name: 'warning_time_in_millis', required: true)
-  final double warningTimeInMillis;
-  @JsonKey(name: 'error_time_in_millis', required: true)
-  final double errorTimeInMillis;
+  @JsonKey(name: 'warning_time_in_milliseconds', required: true)
+  final double warningTimeInMilliseconds;
+  @JsonKey(name: 'error_time_in_milliseconds', required: true)
+  final double errorTimeInMilliseconds;
 }
