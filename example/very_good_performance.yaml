@@ -8,8 +8,8 @@ performance_metrics:
     warning: 5
     error: 10
   average_frame_build_rate_threshold:
-    warning_time_in_millis: 14.0
-    error_time_in_millis: 16.0
+    warning_time_in_milliseconds: 14.0
+    error_time_in_milliseconds: 16.0
   worst_frame_build_rate_threshold:
-    warning_time_in_millis: 14.0
-    error_time_in_millis: 16.0
+    warning_time_in_milliseconds: 14.0
+    error_time_in_milliseconds: 16.0
