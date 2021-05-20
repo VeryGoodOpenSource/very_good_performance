@@ -23,7 +23,8 @@ extension VeryGoodPerformance on FlutterDriver {
     );
     final report = Report.fromJson(summary.summaryJson);
     final score = Scorer.score(report, configuration);
-    Printer.printScore(report, score);
+    Printer.printScore(report, score, configuration);
+    Printer.printReportLocation(configuration, reportName);
   }
 
   Configuration get _configuration {

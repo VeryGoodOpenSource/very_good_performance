@@ -82,18 +82,12 @@ PerformanceMetrics _$PerformanceMetricsFromJson(Map json) {
 
 MissedFramesThreshold _$MissedFramesThresholdFromJson(Map json) {
   return $checkedNew('MissedFramesThreshold', json, () {
-    $checkKeys(json,
-        requiredKeys: const ['warning_percentage', 'error_percentage']);
+    $checkKeys(json, requiredKeys: const ['warning', 'error']);
     final val = MissedFramesThreshold(
-      warningPercentage: $checkedConvert(
-          json, 'warning_percentage', (v) => (v as num).toDouble()),
-      errorPercentage: $checkedConvert(
-          json, 'error_percentage', (v) => (v as num).toDouble()),
+      warning: $checkedConvert(json, 'warning', (v) => v as int),
+      error: $checkedConvert(json, 'error', (v) => v as int),
     );
     return val;
-  }, fieldKeyMap: const {
-    'warningPercentage': 'warning_percentage',
-    'errorPercentage': 'error_percentage'
   });
 }
 

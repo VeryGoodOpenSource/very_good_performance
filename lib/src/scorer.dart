@@ -6,8 +6,8 @@ class Scorer {
     return Score(
       missedFrames: _rating(
         value: report.missedFrameBuildBudgetCount,
-        warning: perfMetrics.missedFramesThreshold.warningPercentage,
-        error: perfMetrics.missedFramesThreshold.errorPercentage,
+        warning: perfMetrics.missedFramesThreshold.warning,
+        error: perfMetrics.missedFramesThreshold.error,
       ),
       averageBuildRate: _rating(
         value: report.averageFrameBuildTimeMillis,
