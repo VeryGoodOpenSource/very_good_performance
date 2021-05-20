@@ -28,7 +28,7 @@ extension VeryGoodPerformance on FlutterDriver {
     final summary = TimelineSummary.summarize(timeline);
     await summary.writeTimelineToFile(
       reportName,
-      destinationDirectory: _configuration.performaceReport.directory,
+      destinationDirectory: configuration.performaceReport.directory,
       pretty: true,
     );
     final report = Report.fromJson(summary.summaryJson);
