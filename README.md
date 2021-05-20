@@ -61,6 +61,17 @@ At the end of the execution, you will see a similar report to this one:
 
 ![Performance Report](./assets/performance_report.png)
 
+#### Running the example project
+
+You can find an `example` project that showcases how to use this library.
+
+```bash
+$> cd example
+$> flutter drive --target=e2e/e2e.dart --driver=e2e/counter_test.dart -d macos --profile
+```
+
+You should see the Counter app running and, at the end of the execution, it will print the performance overview in the console, and will generate the performance reports under `e2e/performance/reports`.
+
 [very good analysis]: https://github.com/VeryGoodOpenSource/very_good_analysis
 [badge]: https://img.shields.io/badge/style-very_good_analysis-B22C89.svg
 [badge_link]: https://pub.dev/packages/very_good_analysis
