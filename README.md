@@ -1,6 +1,6 @@
 # Very Good Performance
 
-[![Very Good Ventures](./assets/vgv_logo.png)](https://verygood.ventures)
+[![Very Good Ventures](https://github.com/VeryGoodOpenSource/very_good_performance/raw/main/assets/vgv_logo.png)](https://verygood.ventures)
 
 Developed with 💙 by [Very Good Ventures](https://verygood.ventures) 🦄
 
@@ -59,7 +59,7 @@ test('tapping on the Increment button updates the counter', () async {
 
 At the end of the execution, you will see a similar report to this one:
 
-![Performance Report](./assets/performance_report.png)
+![Performance Report](https://github.com/VeryGoodOpenSource/very_good_performance/raw/main/assets/performance_report.png)
 
 #### Running the example project
 
