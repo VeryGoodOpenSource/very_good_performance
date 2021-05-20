@@ -41,7 +41,7 @@ performance_metrics:
 
 #### Running tests with `FlutterDrive`
 
-Simply wrap your `FlutterDriver` tests with the method `capturePerformanceTest` to start collecting performance information
+Simply wrap your `FlutterDriver` tests with the method `capturePerformanceReport` to start collecting performance information
 
 ```dart
 test('tapping on the Increment button updates the counter', () async {
