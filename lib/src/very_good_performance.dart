@@ -35,7 +35,7 @@ extension VeryGoodPerformance on FlutterDriver {
     final score = Scorer.score(report, configuration);
     Printer.printScore(report, score, configuration);
     Printer.printReportLocation(configuration, reportName);
-    exit(score.overall.statusCode(configuration.integrationTestExpectations));
+    score.statusCode(configuration.integrationTestExpectations);
   }
 
   Configuration get _configuration {
@@ -44,15 +44,21 @@ extension VeryGoodPerformance on FlutterDriver {
   }
 }
 
-extension on Rating {
-  int statusCode(IntegrationTestExpectations expectations) {
-    switch (this) {
+extension on Score {
+  void statusCode(IntegrationTestExpectations expectations) {
+    switch (overall) {
       case Rating.success:
-        return 0;
+        return;
       case Rating.warning:
-        return expectations.shouldFailBuildOnWarning ? 1 : 0;
+        if (expectations.shouldFailBuildOnWarning) {
+          throw PerformanceException();
+        }
+        return;
       case Rating.failure:
-        return expectations.shouldFailBuildOnError ? 1 : 0;
+        if (expectations.shouldFailBuildOnWarning) {
+          throw PerformanceException();
+        }
+        return;
     }
   }
 }
