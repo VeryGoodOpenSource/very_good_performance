@@ -1,0 +1,15 @@
+performance_report:
+  directory: test/fixtures/tmp_reports
+integration_test_expectations:
+  should_fail_build_on_warning: true
+  should_fail_build_on_error: true
+performance_metrics:
+  missed_frames_threshold:
+    warning: 5
+    error: 10
+  average_frame_build_rate_threshold:
+    warning_time_in_milliseconds: 14.0
+    error_time_in_milliseconds: 16.0
+  worst_frame_build_rate_threshold:
+    warning_time_in_milliseconds: 14.0
+    error_time_in_milliseconds: 16.0
