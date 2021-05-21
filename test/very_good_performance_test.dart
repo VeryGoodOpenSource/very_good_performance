@@ -57,7 +57,7 @@ void main() {
       );
     });
 
-    test('measures a warning report', () async {
+    test('measures an error report', () async {
       final timeline = Timeline.fromJson(errorReportJson);
       when(() => flutterDriver.traceAction(any()))
           .thenAnswer((_) async => timeline);
