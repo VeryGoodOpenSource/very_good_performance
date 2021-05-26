@@ -37,7 +37,7 @@ void main() {
       try {
         await flutterDriver.capturePerformanceReport(
           reportName: 'success',
-          action: () async => print('do nothing'),
+          action: () async => stdout.writeln('do nothing'),
         );
       } catch (_) {
         fail('this should not throw');
@@ -51,7 +51,7 @@ void main() {
       expect(
         () async => await flutterDriver.capturePerformanceReport(
           reportName: 'warning',
-          action: () async => print('do nothing'),
+          action: () async => stdout.writeln('do nothing'),
         ),
         throwsA(isA<PerformanceException>()),
       );
@@ -64,7 +64,7 @@ void main() {
       expect(
         () async => await flutterDriver.capturePerformanceReport(
           reportName: 'warning',
-          action: () async => print('do nothing'),
+          action: () async => stdout.writeln('do nothing'),
         ),
         throwsA(isA<PerformanceException>()),
       );
