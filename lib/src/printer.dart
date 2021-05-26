@@ -15,64 +15,65 @@ class Printer {
     final missedFrames = perfMetrics.missedFramesThreshold;
     final averageBuild = perfMetrics.averageFrameBuildRateThreshold;
     final worstBuild = perfMetrics.worstFrameBuildRateThreshold;
-    print(Table(
-      tableStyle: const TableStyle(border: true),
-      cellStyle: const CellStyle(
-        borderBottom: true,
-        borderRight: true,
-        borderLeft: true,
-        borderTop: true,
-        alignment: TextAlignment.TopLeft,
-        paddingRight: 1,
-        paddingLeft: 2,
-      ),
-      header: const TableSection(rows: [
-        Row(
-          cells: [
-            Cell(''),
-            Cell('Missed Frames'),
-            Cell('Average Frame Build Time ("ms")'),
-            Cell('Worst Frame Build Time("ms")'),
+    stdout
+      ..writeln(Table(
+        tableStyle: const TableStyle(border: true),
+        cellStyle: const CellStyle(
+          borderBottom: true,
+          borderRight: true,
+          borderLeft: true,
+          borderTop: true,
+          alignment: TextAlignment.TopLeft,
+          paddingRight: 1,
+          paddingLeft: 2,
+        ),
+        header: const TableSection(rows: [
+          Row(
+            cells: [
+              Cell(''),
+              Cell('Missed Frames'),
+              Cell('Average Frame Build Time ("ms")'),
+              Cell('Worst Frame Build Time("ms")'),
+            ],
+          ),
+        ]),
+        body: TableSection(
+          rows: [
+            Row(
+              cells: [
+                const Cell('Result'),
+                Cell(score.missedFrames.colorize(
+                  '${report.missedFrameBuildBudgetCount}',
+                )),
+                Cell(score.averageBuildRate.colorize(
+                  '${report.averageFrameBuildTimeMillis}',
+                )),
+                Cell(score.worstFrameBuildRate.colorize(
+                  '${report.worstFrameBuildTimeMillis}',
+                )),
+              ],
+            ),
+            Row(
+              cells: [
+                const Cell('Warning-Error Range'),
+                Cell(
+                  '${missedFrames.warning} - '
+                  '${missedFrames.error}',
+                ),
+                Cell(
+                  '${averageBuild.warningTimeInMilliseconds} - '
+                  '${averageBuild.errorTimeInMilliseconds}',
+                ),
+                Cell(
+                  '${worstBuild.warningTimeInMilliseconds} - '
+                  '${worstBuild.errorTimeInMilliseconds}',
+                ),
+              ],
+            ),
           ],
         ),
-      ]),
-      body: TableSection(
-        rows: [
-          Row(
-            cells: [
-              const Cell('Result'),
-              Cell(score.missedFrames.colorize(
-                '${report.missedFrameBuildBudgetCount}',
-              )),
-              Cell(score.averageBuildRate.colorize(
-                '${report.averageFrameBuildTimeMillis}',
-              )),
-              Cell(score.worstFrameBuildRate.colorize(
-                '${report.worstFrameBuildTimeMillis}',
-              )),
-            ],
-          ),
-          Row(
-            cells: [
-              const Cell('Warning-Error Range'),
-              Cell(
-                '${missedFrames.warning} - '
-                '${missedFrames.error}',
-              ),
-              Cell(
-                '${averageBuild.warningTimeInMilliseconds} - '
-                '${averageBuild.errorTimeInMilliseconds}',
-              ),
-              Cell(
-                '${worstBuild.warningTimeInMilliseconds} - '
-                '${worstBuild.errorTimeInMilliseconds}',
-              ),
-            ],
-          ),
-        ],
-      ),
-    ).render());
-    print(score.overall.explanation);
+      ).render())
+      ..writeln(score.overall.explanation);
   }
 
   static void printReportLocation(Configuration configuration, String name) {
@@ -82,7 +83,7 @@ Two performance reports have been generated. They can be located at:
 * $current/${configuration.performaceReport.directory}/$name.timeline.json
 * $current/${configuration.performaceReport.directory}/$name.timeline_summary.json
     ''';
-    print(message);
+    stdout.writeln(message);
   }
 }
 
