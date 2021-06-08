@@ -108,7 +108,7 @@ extension on Rating {
     switch (this) {
       case Rating.success:
         final pen = AnsiPen()..green(bold: true);
-        return pen('All good! Your application is performing well!');
+        return pen('Very Good! Your application is performing well!');
       case Rating.warning:
         final pen = AnsiPen()..yellow(bold: true);
         return pen(r''''
