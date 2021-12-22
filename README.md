@@ -1,13 +1,15 @@
 # Very Good Performance
 
-[![Very Good Ventures](https://github.com/VeryGoodOpenSource/very_good_performance/raw/main/assets/vgv_logo.png)](https://verygood.ventures)
+[![Very Good Ventures][logo_white]][very_good_ventures_link_dark]
+[![Very Good Ventures][logo_black]][very_good_ventures_link_light]
 
-Developed with 💙 by [Very Good Ventures](https://verygood.ventures) 🦄
+Developed with 💙 by [Very Good Ventures][very_good_ventures_link] 🦄
 
-[![ci](https://github.com/VeryGoodOpenSource/very_good_performance/workflows/ci/badge.svg)](https://github.com/VeryGoodOpenSource/very_good_analysis/actions)
-[![pub package](https://img.shields.io/pub/v/very_good_performance.svg)](https://pub.dartlang.org/packages/very_good_performance)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![style: very good analysis][badge]][badge_link]
+[![ci][ci_badge]][ci_link]
+[![coverage][coverage_badge]][ci_link]
+[![pub package][pub_badge]][pub_link]
+[![License: MIT][license_badge]][license_link]
+[![style: very good analysis][very_good_analysis_badge]][very_good_analysis_badge_link]
 
 ---
 
@@ -72,6 +74,17 @@ $> flutter drive --target=e2e/e2e.dart --driver=e2e/counter_test.dart -d macos -
 
 You should see the Counter app running and, at the end of the execution, it will print the performance overview in the console, and will generate the performance reports under `e2e/performance/reports`.
 
-[very good analysis]: https://github.com/VeryGoodOpenSource/very_good_analysis
-[badge]: https://img.shields.io/badge/style-very_good_analysis-B22C89.svg
-[badge_link]: https://pub.dev/packages/very_good_analysis
+[ci_badge]: https://github.com/VeryGoodOpenSource/very_good_performance/workflows/ci/badge.svg
+[ci_link]: https://github.com/VeryGoodOpenSource/very_good_performance/actions
+[coverage_badge]: https://raw.githubusercontent.com/VeryGoodOpenSource/very_good_performance/main/coverage_badge.svg
+[license_badge]: https://img.shields.io/badge/license-MIT-blue.svg
+[license_link]: https://opensource.org/licenses/MIT
+[logo_black]: https://raw.githubusercontent.com/VeryGoodOpenSource/very_good_performance/main/assets/vgv_logo_black.png#gh-light-mode-only
+[logo_white]: https://raw.githubusercontent.com/VeryGoodOpenSource/very_good_performance/main/assets/vgv_logo_white.png#gh-dark-mode-only
+[pub_badge]: https://img.shields.io/pub/v/very_good_performance.svg
+[pub_link]: https://pub.dartlang.org/packages/very_good_performance
+[very_good_analysis_badge]: https://img.shields.io/badge/style-very_good_analysis-B22C89.svg
+[very_good_analysis_badge_link]: https://pub.dev/packages/very_good_analysis
+[very_good_ventures_link]: https://verygood.ventures
+[very_good_ventures_link_dark]: https://verygood.ventures#gh-dark-mode-only
+[very_good_ventures_link_light]: https://verygood.ventures#gh-light-mode-only

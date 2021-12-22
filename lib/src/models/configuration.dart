@@ -19,7 +19,7 @@ class Configuration {
   factory Configuration.fromJson(Map json) => _$ConfigurationFromJson(json);
 
   factory Configuration.fromString(String stringYaml) {
-    final yaml = loadYaml(stringYaml);
+    final yaml = loadYaml(stringYaml) as YamlMap;
     return Configuration.fromJson(yaml);
   }
 
