@@ -46,10 +46,11 @@ void main() {
 
     test('measures a warning report', () async {
       final timeline = Timeline.fromJson(warningReportJson);
-      when(() => flutterDriver.traceAction(any()))
-          .thenAnswer((_) async => timeline);
+      when(
+        () => flutterDriver.traceAction(any()),
+      ).thenAnswer((_) async => timeline);
       expect(
-        () async => await flutterDriver.capturePerformanceReport(
+        () => flutterDriver.capturePerformanceReport(
           reportName: 'warning',
           action: () async => stdout.writeln('do nothing'),
         ),
@@ -59,10 +60,11 @@ void main() {
 
     test('measures an error report', () async {
       final timeline = Timeline.fromJson(errorReportJson);
-      when(() => flutterDriver.traceAction(any()))
-          .thenAnswer((_) async => timeline);
+      when(
+        () => flutterDriver.traceAction(any()),
+      ).thenAnswer((_) async => timeline);
       expect(
-        () async => await flutterDriver.capturePerformanceReport(
+        () => flutterDriver.capturePerformanceReport(
           reportName: 'warning',
           action: () async => stdout.writeln('do nothing'),
         ),

@@ -1,4 +1,4 @@
-import 'models/models.dart';
+import 'package:very_good_performance/src/models/models.dart';
 
 class Scorer {
   static Score score(Report report, Configuration configuration) {

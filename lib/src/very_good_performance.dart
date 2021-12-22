@@ -4,9 +4,8 @@ import 'dart:io';
 
 import 'package:flutter_driver/flutter_driver.dart';
 import 'package:very_good_performance/src/models/models.dart';
-
-import 'printer.dart';
-import 'scorer.dart';
+import 'package:very_good_performance/src/printer.dart';
+import 'package:very_good_performance/src/scorer.dart';
 
 extension VeryGoodPerformance on FlutterDriver {
   /// It will create two performance reports with the given [reportName]:

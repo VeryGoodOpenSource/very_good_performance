@@ -1,5 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
+// ignore_for_file: implicit_dynamic_parameter, require_trailing_commas
+
 part of 'configuration.dart';
 
 // **************************************************************************

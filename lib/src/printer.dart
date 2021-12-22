@@ -2,8 +2,7 @@ import 'dart:io';
 
 import 'package:ansicolor/ansicolor.dart';
 import 'package:barbecue/barbecue.dart';
-
-import 'models/models.dart';
+import 'package:very_good_performance/src/models/models.dart';
 
 class Printer {
   static void printScore(
@@ -16,63 +15,73 @@ class Printer {
     final averageBuild = perfMetrics.averageFrameBuildRateThreshold;
     final worstBuild = perfMetrics.worstFrameBuildRateThreshold;
     stdout
-      ..writeln(Table(
-        tableStyle: const TableStyle(border: true),
-        cellStyle: const CellStyle(
-          borderBottom: true,
-          borderRight: true,
-          borderLeft: true,
-          borderTop: true,
-          alignment: TextAlignment.TopLeft,
-          paddingRight: 1,
-          paddingLeft: 2,
-        ),
-        header: const TableSection(rows: [
-          Row(
-            cells: [
-              Cell(''),
-              Cell('Missed Frames'),
-              Cell('Average Frame Build Time ("ms")'),
-              Cell('Worst Frame Build Time("ms")'),
+      ..writeln(
+        Table(
+          tableStyle: const TableStyle(border: true),
+          cellStyle: const CellStyle(
+            borderBottom: true,
+            borderRight: true,
+            borderLeft: true,
+            borderTop: true,
+            alignment: TextAlignment.TopLeft,
+            paddingRight: 1,
+            paddingLeft: 2,
+          ),
+          header: const TableSection(
+            rows: [
+              Row(
+                cells: [
+                  Cell(''),
+                  Cell('Missed Frames'),
+                  Cell('Average Frame Build Time ("ms")'),
+                  Cell('Worst Frame Build Time("ms")'),
+                ],
+              ),
             ],
           ),
-        ]),
-        body: TableSection(
-          rows: [
-            Row(
-              cells: [
-                const Cell('Result'),
-                Cell(score.missedFrames.colorize(
-                  '${report.missedFrameBuildBudgetCount}',
-                )),
-                Cell(score.averageBuildRate.colorize(
-                  '${report.averageFrameBuildTimeMillis}',
-                )),
-                Cell(score.worstFrameBuildRate.colorize(
-                  '${report.worstFrameBuildTimeMillis}',
-                )),
-              ],
-            ),
-            Row(
-              cells: [
-                const Cell('Warning-Error Range'),
-                Cell(
-                  '${missedFrames.warning} - '
-                  '${missedFrames.error}',
-                ),
-                Cell(
-                  '${averageBuild.warningTimeInMilliseconds} - '
-                  '${averageBuild.errorTimeInMilliseconds}',
-                ),
-                Cell(
-                  '${worstBuild.warningTimeInMilliseconds} - '
-                  '${worstBuild.errorTimeInMilliseconds}',
-                ),
-              ],
-            ),
-          ],
-        ),
-      ).render())
+          body: TableSection(
+            rows: [
+              Row(
+                cells: [
+                  const Cell('Result'),
+                  Cell(
+                    score.missedFrames.colorize(
+                      '${report.missedFrameBuildBudgetCount}',
+                    ),
+                  ),
+                  Cell(
+                    score.averageBuildRate.colorize(
+                      '${report.averageFrameBuildTimeMillis}',
+                    ),
+                  ),
+                  Cell(
+                    score.worstFrameBuildRate.colorize(
+                      '${report.worstFrameBuildTimeMillis}',
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                cells: [
+                  const Cell('Warning-Error Range'),
+                  Cell(
+                    '${missedFrames.warning} - '
+                    '${missedFrames.error}',
+                  ),
+                  Cell(
+                    '${averageBuild.warningTimeInMilliseconds} - '
+                    '${averageBuild.errorTimeInMilliseconds}',
+                  ),
+                  Cell(
+                    '${worstBuild.warningTimeInMilliseconds} - '
+                    '${worstBuild.errorTimeInMilliseconds}',
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ).render(),
+      )
       ..writeln(score.overall.explanation);
   }
 
@@ -111,10 +120,12 @@ extension on Rating {
         return pen('Very Good! Your application is performing well!');
       case Rating.warning:
         final pen = AnsiPen()..yellow(bold: true);
-        return pen(r''''
+        return pen(
+          '''
 Heads up! Your application might be starting to experience some degradation in 
 its performance. You might want to consider launching an investigation to 
-understand what components of your application are consuming more resources''');
+understand what components of your application are consuming more resources''',
+        );
       case Rating.failure:
         final pen = AnsiPen()..red(bold: true);
         return pen('Error! Your application is not performing well!');
