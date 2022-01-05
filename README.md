@@ -79,8 +79,8 @@ You should see the Counter app running and, at the end of the execution, it will
 [coverage_badge]: https://raw.githubusercontent.com/VeryGoodOpenSource/very_good_performance/main/coverage_badge.svg
 [license_badge]: https://img.shields.io/badge/license-MIT-blue.svg
 [license_link]: https://opensource.org/licenses/MIT
-[logo_black]: https://raw.githubusercontent.com/VeryGoodOpenSource/very_good_performance/main/assets/vgv_logo_black.png#gh-light-mode-only
-[logo_white]: https://raw.githubusercontent.com/VeryGoodOpenSource/very_good_performance/main/assets/vgv_logo_white.png#gh-dark-mode-only
+[logo_black]: https://raw.githubusercontent.com/VGVentures/very_good_brand/main/styles/README/vgv_logo_black.png#gh-light-mode-only
+[logo_white]: https://raw.githubusercontent.com/VGVentures/very_good_brand/main/styles/README/vgv_logo_white.png#gh-dark-mode-only
 [pub_badge]: https://img.shields.io/pub/v/very_good_performance.svg
 [pub_link]: https://pub.dartlang.org/packages/very_good_performance
 [very_good_analysis_badge]: https://img.shields.io/badge/style-very_good_analysis-B22C89.svg
