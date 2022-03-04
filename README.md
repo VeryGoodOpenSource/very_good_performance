@@ -41,7 +41,7 @@ performance_metrics:
     error_time_in_milliseconds: 16.0
 ```
 
-#### Running tests with `FlutterDrive`
+#### Running tests with `FlutterDriver`
 
 Simply wrap your `FlutterDriver` tests with the method `capturePerformanceReport` to start collecting performance information
 
