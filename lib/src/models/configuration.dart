@@ -16,7 +16,8 @@ class Configuration {
     this.performanceMetrics,
   );
 
-  factory Configuration.fromJson(Map json) => _$ConfigurationFromJson(json);
+  factory Configuration.fromJson(Map<dynamic, dynamic> json) =>
+      _$ConfigurationFromJson(json);
 
   factory Configuration.fromString(String stringYaml) {
     final yaml = loadYaml(stringYaml) as YamlMap;
@@ -40,7 +41,7 @@ class Configuration {
 class PerformanceReport {
   const PerformanceReport(this.directory);
 
-  factory PerformanceReport.fromJson(Map json) =>
+  factory PerformanceReport.fromJson(Map<dynamic, dynamic> json) =>
       _$PerformanceReportFromJson(json);
 
   @JsonKey(name: 'directory')
@@ -59,7 +60,7 @@ class IntegrationTestExpectations {
     required this.shouldFailBuildOnError,
   });
 
-  factory IntegrationTestExpectations.fromJson(Map json) =>
+  factory IntegrationTestExpectations.fromJson(Map<dynamic, dynamic> json) =>
       _$IntegrationTestExpectationsFromJson(json);
 
   @JsonKey(name: 'should_fail_build_on_warning', required: true)
@@ -81,7 +82,7 @@ class PerformanceMetrics {
     this.worstFrameBuildRateThreshold,
   );
 
-  factory PerformanceMetrics.fromJson(Map json) =>
+  factory PerformanceMetrics.fromJson(Map<dynamic, dynamic> json) =>
       _$PerformanceMetricsFromJson(json);
 
   @JsonKey(name: 'missed_frames_threshold', required: true)
@@ -104,7 +105,7 @@ class MissedFramesThreshold {
     required this.error,
   });
 
-  factory MissedFramesThreshold.fromJson(Map json) =>
+  factory MissedFramesThreshold.fromJson(Map<dynamic, dynamic> json) =>
       _$MissedFramesThresholdFromJson(json);
 
   @JsonKey(name: 'warning', required: true)
@@ -125,7 +126,7 @@ class FrameBuildRateThreshold {
     required this.errorTimeInMilliseconds,
   });
 
-  factory FrameBuildRateThreshold.fromJson(Map json) =>
+  factory FrameBuildRateThreshold.fromJson(Map<dynamic, dynamic> json) =>
       _$FrameBuildRateThresholdFromJson(json);
 
   @JsonKey(name: 'warning_time_in_milliseconds', required: true)
