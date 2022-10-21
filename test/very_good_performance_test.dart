@@ -12,20 +12,20 @@ class MockFlutterDriver extends Mock implements FlutterDriver {}
 
 void main() {
   late final FlutterDriver flutterDriver;
-  final _tempReports = '${Directory.current.path}/test/fixtures/tmp_reports';
-  final _tempFile = '${Directory.current.path}/very_good_performance.yaml';
+  final tempReports = '${Directory.current.path}/test/fixtures/tmp_reports';
+  final tempFile = '${Directory.current.path}/very_good_performance.yaml';
 
   setUpAll(() async {
-    await File('test/fixtures/very_good_performance.yaml').copy(_tempFile);
+    await File('test/fixtures/very_good_performance.yaml').copy(tempFile);
     flutterDriver = MockFlutterDriver();
   });
 
   tearDownAll(() {
-    if (File(_tempFile).existsSync()) {
-      File(_tempFile).deleteSync();
+    if (File(tempFile).existsSync()) {
+      File(tempFile).deleteSync();
     }
-    if (Directory(_tempReports).existsSync()) {
-      Directory(_tempReports).deleteSync(recursive: true);
+    if (Directory(tempReports).existsSync()) {
+      Directory(tempReports).deleteSync(recursive: true);
     }
   });
 
