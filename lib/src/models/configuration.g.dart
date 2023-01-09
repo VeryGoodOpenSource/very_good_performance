@@ -8,7 +8,7 @@ part of 'configuration.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Configuration _$ConfigurationFromJson(Map json) {
+Configuration _$ConfigurationFromJson(Map<dynamic, dynamic> json) {
   return $checkedNew('Configuration', json, () {
     $checkKeys(json, requiredKeys: const [
       'performance_report',
@@ -31,7 +31,7 @@ Configuration _$ConfigurationFromJson(Map json) {
   });
 }
 
-PerformanceReport _$PerformanceReportFromJson(Map json) {
+PerformanceReport _$PerformanceReportFromJson(Map<dynamic, dynamic> json) {
   return $checkedNew('PerformanceReport', json, () {
     final val = PerformanceReport(
       $checkedConvert(json, 'directory', (v) => v as String),
@@ -40,7 +40,9 @@ PerformanceReport _$PerformanceReportFromJson(Map json) {
   });
 }
 
-IntegrationTestExpectations _$IntegrationTestExpectationsFromJson(Map json) {
+IntegrationTestExpectations _$IntegrationTestExpectationsFromJson(
+  Map<dynamic, dynamic> json,
+) {
   return $checkedNew('IntegrationTestExpectations', json, () {
     $checkKeys(json, requiredKeys: const [
       'should_fail_build_on_warning',
@@ -59,7 +61,7 @@ IntegrationTestExpectations _$IntegrationTestExpectationsFromJson(Map json) {
   });
 }
 
-PerformanceMetrics _$PerformanceMetricsFromJson(Map json) {
+PerformanceMetrics _$PerformanceMetricsFromJson(Map<dynamic, dynamic> json) {
   return $checkedNew('PerformanceMetrics', json, () {
     $checkKeys(json, requiredKeys: const [
       'missed_frames_threshold',
@@ -82,7 +84,9 @@ PerformanceMetrics _$PerformanceMetricsFromJson(Map json) {
   });
 }
 
-MissedFramesThreshold _$MissedFramesThresholdFromJson(Map json) {
+MissedFramesThreshold _$MissedFramesThresholdFromJson(
+  Map<dynamic, dynamic> json,
+) {
   return $checkedNew('MissedFramesThreshold', json, () {
     $checkKeys(json, requiredKeys: const ['warning', 'error']);
     final val = MissedFramesThreshold(
@@ -93,7 +97,9 @@ MissedFramesThreshold _$MissedFramesThresholdFromJson(Map json) {
   });
 }
 
-FrameBuildRateThreshold _$FrameBuildRateThresholdFromJson(Map json) {
+FrameBuildRateThreshold _$FrameBuildRateThresholdFromJson(
+  Map<dynamic, dynamic> json,
+) {
   return $checkedNew('FrameBuildRateThreshold', json, () {
     $checkKeys(json, requiredKeys: const [
       'warning_time_in_milliseconds',
