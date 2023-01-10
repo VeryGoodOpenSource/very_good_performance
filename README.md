@@ -1,3 +1,5 @@
+<p align="center"><b>⚠️ Attention: This repository has been archived and is now read-only!</b></p>
+
 # Very Good Performance
 
 [![Very Good Ventures][logo_white]][very_good_ventures_link_dark]
